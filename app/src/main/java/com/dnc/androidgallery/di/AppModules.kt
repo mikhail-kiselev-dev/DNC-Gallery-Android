@@ -1,5 +1,13 @@
 package com.dnc.androidgallery.di
 
-import org.koin.core.module.Module
+import com.dnc.androidgallery.features.auth.di.authModule
+import com.dnc.androidgallery.features.feed.di.feedModule
 
-val applicationModules = listOf<Module>()
+val applicationModules = listOf(
+    providersModule,
+    coreModule,
+    utilsModule,
+    apiModule,
+    authModule,
+    feedModule,
+)

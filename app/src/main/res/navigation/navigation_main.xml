@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dnc.androidgallery.features.splash.ui.SplashFragment"
+        android:label="SplashFragment" />
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.dnc.androidgallery.features.auth.ui.AuthFragment"
+        android:label="AuthFragment" />
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.dnc.androidgallery.features.feed.ui.FeedFragment"
+        android:label="FeedFragment" />
+</navigation>
