@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DNC Gallery</string>
+
+    <string name="unexpected_server_error">Unexpected Server Error</string>
+    <string name="unexpected_server_error_is">Unexpected server error: %s</string>
+    <string name="error_unable_to_communicate_to_server">Unable to communicate to server</string>
+    <string name="error_no_internet_connection">No internet connection</string>
+    <string name="unexpected_error">Something went wrong. Please check your Internet connection and try again.</string>
 </resources>

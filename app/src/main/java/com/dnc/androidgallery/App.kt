@@ -17,4 +17,8 @@ class App : Application() {
             modules(applicationModules)
         }
     }
+
+    companion object {
+        const val SHORT_TAG = "GLR"
+    }
 }
