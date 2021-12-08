@@ -9,8 +9,13 @@ import androidx.fragment.app.Fragment
 import com.dnc.androidgallery.R
 import com.dnc.androidgallery.core.extensions.doOnApplyWindowInsets
 import kotlinx.android.synthetic.main.fragment_splash.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-private const val ANIM_DURATION = 1000L
+private const val ANIM_DELAY = 2200L
+private const val ANIM_DURATION = 800L
 
 class SplashFragment : Fragment(R.layout.fragment_splash) {
 
@@ -27,14 +32,17 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     fun startSplashAnimation(listener: () -> Unit) {
         container.doOnLayout {
-            it.animate()
-                .alpha(0f)
-                .setDuration(ANIM_DURATION)
-                .setInterpolator(AccelerateInterpolator())
-                .withEndAction {
-                    listener.invoke()
-                }
-                .start()
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(ANIM_DELAY)
+                it.animate()
+                    .alpha(0f)
+                    .setDuration(ANIM_DURATION)
+                    .setInterpolator(AccelerateInterpolator())
+                    .withEndAction {
+                        listener.invoke()
+                    }
+                    .start()
+            }
         }
     }
 }
