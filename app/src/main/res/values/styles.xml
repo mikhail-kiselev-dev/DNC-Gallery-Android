@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fonts -->
+    <style name="BalooRegular">
+        <item name="fontFamily">@font/font_baloo_bhaijaan</item>
+    </style>
+
+    <style name="BalooRegular.TextSmall12" parent="BalooRegular">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="BalooRegular.TextMedium14" parent="BalooRegular">
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="BalooRegular.TextLarge16" parent="BalooRegular">
+        <item name="android:textSize">@dimen/text_big</item>
+    </style>
+
+    <style name="BalooRegular.TextHeader22" parent="BalooRegular">
+        <item name="android:textSize">@dimen/text_header</item>
+    </style>
+
+    <!-- Views -->
+    <style name="ShapeAppearanceOverlay.App.RoundedCorners" parent="">
+        <item name="cornerSize">5%</item>
+    </style>
+</resources>
