@@ -4,9 +4,11 @@ import android.os.Bundle
 import com.dnc.androidgallery.base.BaseViewModel
 import com.dnc.androidgallery.core.network.ConnectionStatusListener
 import com.dnc.androidgallery.core.utils.SingleLiveEvent
+import com.google.firebase.auth.FirebaseAuth
 
 class MainViewModel(
-    connectionStatusListener: ConnectionStatusListener
+    connectionStatusListener: ConnectionStatusListener,
+    private val firebaseAuth: FirebaseAuth
 ) : BaseViewModel() {
 
     val startDestinationInitialized = SingleLiveEvent<Pair<Int, Bundle?>>()
@@ -17,5 +19,5 @@ class MainViewModel(
         startDestinationInitialized.value = destinationId to bundle
     }
 
-    fun isLoggedIn(): Boolean = false
+    fun isLoggedIn(): Boolean = firebaseAuth.currentUser != null
 }

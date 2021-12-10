@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import kotlin.reflect.KClass
 
-// TODO work around types here to be able obtain more specific models and viewholder on delegates
-//  since now they are very generic - just ViewHolder / ItemModel
 @Suppress("unused")
 open class RecyclerDelegationAdapter(
     protected val context: Context,

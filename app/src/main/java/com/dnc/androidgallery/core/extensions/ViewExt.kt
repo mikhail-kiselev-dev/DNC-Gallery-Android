@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.textfield.TextInputLayout
 
 @Suppress("unused")
 fun View.doOnApplyWindowInsets(block: (View, insets: WindowInsetsCompat, initialPadding: Rect) -> WindowInsetsCompat) {
@@ -38,3 +39,6 @@ fun View.requestApplyInsetsWhenAttached() {
         })
     }
 }
+
+val TextInputLayout.data: String?
+    get() = this.editText?.text?.toString()

@@ -16,5 +16,5 @@ val coreModule = module {
     }
 
     single { ExceptionParser(get()) }
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
 }
