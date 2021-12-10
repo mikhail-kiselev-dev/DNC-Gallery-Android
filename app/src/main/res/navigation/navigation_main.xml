@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/feedFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -15,7 +15,7 @@
         android:label="AuthFragment" />
 
     <fragment
-        android:id="@+id/feedFragment"
-        android:name="com.dnc.androidgallery.features.feed.ui.FeedFragment"
-        android:label="FeedFragment" />
+        android:id="@+id/dashboardFragment"
+        android:name="com.dnc.androidgallery.features.dashboard.ui.DashboardFragment"
+        android:label="DashboardFragment" />
 </navigation>

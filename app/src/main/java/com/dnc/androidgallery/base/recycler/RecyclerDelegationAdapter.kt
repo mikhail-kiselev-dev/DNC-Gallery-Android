@@ -2,7 +2,6 @@ package com.dnc.androidgallery.base.recycler
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Build
 import android.util.SparseArray
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -65,9 +64,7 @@ open class RecyclerDelegationAdapter(
             ?: throw NullPointerException("Delegate for item in position $position not found")
 
         val viewType = delegate.getViewType()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            itemTypeToDelegatesMap[viewType] = delegate
-        }
+        itemTypeToDelegatesMap[viewType] = delegate
         return viewType
     }
 

@@ -1,16 +1,16 @@
-package com.dnc.androidgallery.features.feed.ui
+package com.dnc.androidgallery.features.settings.ui
 
 import android.os.Bundle
 import android.view.View
 import com.dnc.androidgallery.R
 import com.dnc.androidgallery.base.BaseFragment
-import com.dnc.androidgallery.databinding.FragmentFeedBinding
+import com.dnc.androidgallery.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_feed.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 
-class FeedFragment : BaseFragment<FeedViewModel, FragmentFeedBinding>(
-    R.layout.fragment_feed,
-    FragmentFeedBinding::bind
+class SettingsFragment : BaseFragment<SettingsViewModel, FragmentSettingsBinding>(
+    R.layout.fragment_settings,
+    FragmentSettingsBinding::bind
 ) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

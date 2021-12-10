@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             return
         } else {
             val startDestinationId = if (mainViewModel.isLoggedIn()) {
-                R.id.feedFragment
+                R.id.dashboardFragment
             } else {
                 R.id.authFragment
             }
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
     @Suppress("unused")
     fun goToMainApp() {
-        mainViewModel.initStartDestinationBy(R.id.feedFragment)
+        mainViewModel.initStartDestinationBy(R.id.dashboardFragment)
     }
 
     private fun onNavGraphInited() {
