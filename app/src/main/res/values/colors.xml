@@ -6,4 +6,6 @@
     <color name="secondary_dark">#5C7AFF</color>
     <color name="black">#000505</color>
     <color name="white">#FEFCFD</color>
+    <color name="snow_white">#FFFAFA</color>
+    <color name="grey">#BBBBBB</color>
 </resources>

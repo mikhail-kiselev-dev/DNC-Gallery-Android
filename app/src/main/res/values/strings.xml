@@ -18,5 +18,9 @@
     <string name="not_an_email">Not an email</string>
     <string name="password_empty">Password is empty</string>
     <string name="password_to_short">Password to short\nUse more than 6 symbols</string>
+
     <string name="sign_out">Sign Out</string>
+    <string name="top_pictures">Top pictures</string>
+    <string name="recent_pictures">Recent pictures</string>
+    <string name="settings">Settings</string>
 </resources>
