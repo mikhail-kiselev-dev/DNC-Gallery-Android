@@ -39,7 +39,6 @@ class CallWithErrorHandling(
 
     override fun clone() = CallWithErrorHandling(delegate.clone(), gson)
 
-    // TODO rethink those exceptions
     private fun mapToAppException(throwable: Throwable): Throwable {
         return when (throwable) {
             is HttpException -> {

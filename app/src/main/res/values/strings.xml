@@ -6,10 +6,17 @@
     <string name="error_unable_to_communicate_to_server">Unable to communicate to server</string>
     <string name="error_no_internet_connection">No internet connection</string>
     <string name="unexpected_error">Something went wrong. Please check your Internet connection and try again.</string>
+
     <string name="photo_viewer">Photo Viewer</string>
     <string name="discover_with_us">Discover With Us! Get Inspired With Us!</string>
     <string name="drum_n_code">Drum\'N\'Code</string>
+
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="lets_go">Let\'s Go</string>
+    <string name="email_empty">Email is empty</string>
+    <string name="not_an_email">Not an email</string>
+    <string name="password_empty">Password is empty</string>
+    <string name="password_to_short">Password to short\nUse more than 6 symbols</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

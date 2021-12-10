@@ -18,7 +18,6 @@ class ExceptionParser(
         throwable.printStackTrace()
         return when (throwable) {
             is ServerError -> {
-                // TODO check error messages by codes
                 return resourceProvider.getString(
                     R.string.unexpected_server_error,
                     throwable.code

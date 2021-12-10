@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "673660827613",
+    "project_id": "dnc-android-gallery",
+    "storage_bucket": "dnc-android-gallery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673660827613:android:2534d3c8b1af675dbd2834",
+        "android_client_info": {
+          "package_name": "com.dnc.androidgallery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673660827613-h5e734djqotinssi99ntor3ceqpt5qml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dnc.androidgallery",
+            "certificate_hash": "9e745db31d1330864877f7c2a1e3ea3bfe1a627b"
+          }
+        },
+        {
+          "client_id": "673660827613-81d891mc6p6pv970hfbf90e622jms1jd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotWb2vB63uV0OZbQBy2YIEfXAl_qNguU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673660827613-81d891mc6p6pv970hfbf90e622jms1jd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
