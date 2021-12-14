@@ -1,6 +1,6 @@
 package com.dnc.androidgallery.core.network
 
-import com.dnc.androidgallery.features.feed.data.response.TopFeedResponse
+import com.dnc.androidgallery.features.feed.data.response.FeedResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,5 +10,11 @@ interface ApiService {
     suspend fun getInterestingPhotos(
         @Query("page") page: Int = 1,
         @Query("date") date: String? = ""
-    ): TopFeedResponse
+    ): FeedResponse
+
+    @GET("?method=flickr.photos.getRecent")
+    suspend fun getRecentPhotos(
+        @Query("page") page: Int = 1,
+        @Query("date") date: String? = ""
+    ): FeedResponse
 }

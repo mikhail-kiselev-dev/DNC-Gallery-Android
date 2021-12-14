@@ -5,16 +5,18 @@ import android.view.View
 import com.dnc.androidgallery.R
 import com.dnc.androidgallery.base.BaseFragment
 import com.dnc.androidgallery.base.recycler.RecyclerDelegationAdapter
+import com.dnc.androidgallery.core.data.FeedType
 import com.dnc.androidgallery.core.extensions.subscribe
 import com.dnc.androidgallery.core.utils.logd
 import com.dnc.androidgallery.databinding.FragmentFeedBinding
 import com.dnc.androidgallery.features.feed.ui.list.FeedAdapterDelegate
 import kotlinx.android.synthetic.main.fragment_feed.*
 
-class BaseFeedFragment(private val position: Int) : BaseFragment<BaseFeedViewModel, FragmentFeedBinding>(
-    R.layout.fragment_feed,
-    FragmentFeedBinding::bind
-) {
+class FeedFragment(private val position: Int, private val content: FeedType) :
+    BaseFragment<FeedViewModel, FragmentFeedBinding>(
+        R.layout.fragment_feed,
+        FragmentFeedBinding::bind
+    ) {
 
     private val adapter by lazy {
         RecyclerDelegationAdapter(requireContext()).apply {
@@ -35,12 +37,12 @@ class BaseFeedFragment(private val position: Int) : BaseFragment<BaseFeedViewMod
         binding.apply {
             rvFeed.adapter = adapter
         }
-        viewModel.loadFeed(position + 1)
+        viewModel.loadFeed(content, position + 1)
     }
 
     override fun observeLiveData() {
         super.observeLiveData()
-        subscribe(viewModel.topFeed) {
+        subscribe(viewModel.currentFeed) {
             setReadyState()
             adapter.setItems(it)
         }
