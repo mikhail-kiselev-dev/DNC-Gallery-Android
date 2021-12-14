@@ -10,6 +10,10 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+private const val format = "json"
+private const val callbackStatus = "1"
+private const val perPage = "9"
+
 val apiModule = module {
 
     factory { GsonConverterFactory.create(Gson()) }
@@ -27,6 +31,18 @@ val apiModule = module {
     single {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(get<HttpLoggingInterceptor>())
+            .addInterceptor { chain ->
+                val url = chain
+                    .request()
+                    .url
+                    .newBuilder()
+                    .addQueryParameter("api_key", BuildConfig.FLICKR_API_TOKEN)
+                    .addQueryParameter("format", format)
+                    .addQueryParameter("per_page", perPage)
+                    .addQueryParameter("nojsoncallback", callbackStatus)
+                    .build()
+                chain.proceed(chain.request().newBuilder().url(url).build())
+            }
             .build()
 
         Retrofit.Builder()

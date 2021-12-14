@@ -42,7 +42,8 @@ android {
     buildTypes {
         all {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', 'BASE_URL', "\"https://google.com/\""
+            buildConfigField 'String', 'BASE_URL', "\"https://api.flickr.com/services/rest/\""
+            buildConfigField 'String', 'FLICKR_API_TOKEN', keystoreProperties['FLICKR_API_TOKEN']
         }
         debug {
             minifyEnabled false
