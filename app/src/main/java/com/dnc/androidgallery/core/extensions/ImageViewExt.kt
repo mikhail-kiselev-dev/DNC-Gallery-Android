@@ -16,15 +16,11 @@ fun ImageView.loadImageUrl(url: String?, placeHolder: Int = R.drawable.ic_launch
 
 fun ImageView.loadImage(
     image: Image,
-    placeHolder: Int? = R.mipmap.ic_launcher_round
 ) {
     val glide = Glide.with(this)
     val builder = when (image) {
         is Image.ImgRes -> glide.load(image.resId)
         is Image.ImgUrl -> glide.load(image.url)
-    }
-    placeHolder?.also {
-        builder.placeholder(it)
     }
     builder.into(this)
 }

@@ -26,4 +26,7 @@
     <string name="title">Title</string>
     <string name="back">Back</string>
     <string name="option_icon">Option Icon</string>
+    <string name="photo_small">Photo Small</string>
+    <string name="under_construction">Under Construction</string>
+    <string name="page_num">%s / %s</string>
 </resources>
