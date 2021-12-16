@@ -5,6 +5,7 @@ import android.view.View
 import com.dnc.androidgallery.R
 import com.dnc.androidgallery.base.BaseFragment
 import com.dnc.androidgallery.base.recycler.RecyclerDelegationAdapter
+import com.dnc.androidgallery.core.extensions.getParentFragment
 import com.dnc.androidgallery.core.extensions.subscribe
 import com.dnc.androidgallery.databinding.FragmentSettingsBinding
 import com.dnc.androidgallery.features.settings.ui.list.SettingsAdapterDelegate
@@ -45,7 +46,8 @@ class SettingsFragment : BaseFragment<SettingsViewModel, FragmentSettingsBinding
     }
 
     private fun setupTitleBar() {
-        val bottomNavbar = parentFragment?.parentFragment?.bottomNavbar ?: return
+        // TODO find another way to grab navBar/ return to previous fragment
+        val bottomNavbar = getParentFragment(false)?.getParentFragment(false)?.bottomNavbar ?: return
         binding.titleView.ivBack.setOnClickListener {
             bottomNavbar.setActiveTab(
                 bottomNavbar.prevActiveTab

@@ -4,19 +4,21 @@ import com.dnc.androidgallery.core.network.ApiService
 import com.dnc.androidgallery.features.feed.domain.model.Photo
 import com.dnc.androidgallery.features.feed.domain.model.domain
 
-interface TopFeedDataSource {
+interface FeedDataSource {
     suspend fun getTopPhotos(page: Int, date: String?): List<Photo>
-    suspend fun getTotalPages(): Int
+    suspend fun getRecentPhotos(page: Int, date: String?): List<Photo>
 }
 
-class TopFeedDataSourceImpl(private val apiService: ApiService) : TopFeedDataSource {
+class FeedDataSourceImpl(private val apiService: ApiService) : FeedDataSource {
     override suspend fun getTopPhotos(page: Int, date: String?): List<Photo> {
         return apiService.getInterestingPhotos(page, date).content.photos.map {
             it.domain()
         }
     }
 
-    override suspend fun getTotalPages(): Int {
-        return apiService.getInterestingPhotos().content.pages
+    override suspend fun getRecentPhotos(page: Int, date: String?): List<Photo> {
+        return apiService.getRecentPhotos(page, date).content.photos.map {
+            it.domain()
+        }
     }
 }

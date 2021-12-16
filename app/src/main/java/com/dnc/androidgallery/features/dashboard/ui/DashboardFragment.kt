@@ -51,13 +51,13 @@ class DashboardFragment : BaseHostFragment<DashboardViewModel, FragmentDashboard
             bottomGraphs = listOf(
                 BottomNavigationController.BottomGraph(
                     BottomItem.TOP,
-                    R.navigation.navigation_top_photos,
-                    R.id.navigation_top_photos
+                    R.navigation.navigation_photos_top,
+                    R.id.navigation_photos_top
                 ),
                 BottomNavigationController.BottomGraph(
                     BottomItem.RECENT,
-                    R.navigation.navigation_recent_photos,
-                    R.id.navigation_recent_photos
+                    R.navigation.navigation_photos_recent,
+                    R.id.navigation_photos_recent
                 ),
                 BottomNavigationController.BottomGraph(
                     BottomItem.SETTINGS,

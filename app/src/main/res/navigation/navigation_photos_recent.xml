@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_photos_recent"
+    app:startDestination="@id/feedHolderFragment">
+
+    <fragment
+        android:id="@+id/feedHolderFragment"
+        android:name="com.dnc.androidgallery.features.feed.ui.FeedHolderFragment"
+        android:label="FeedHolderFragment" >
+        <argument
+            android:name="feedType"
+            android:defaultValue="RECENT"
+            app:argType="com.dnc.androidgallery.core.data.FeedType" />
+    </fragment>
+</navigation>
