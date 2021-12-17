@@ -11,13 +11,13 @@ interface FeedDataSource {
 
 class FeedDataSourceImpl(private val apiService: ApiService) : FeedDataSource {
     override suspend fun getTopPhotos(page: Int, date: String?): List<Photo> {
-        return apiService.getInterestingPhotos(page, date).content.photos.map {
+        return apiService.getInterestingPhotos(page = page, date = date).content.photos.map {
             it.domain()
         }
     }
 
     override suspend fun getRecentPhotos(page: Int, date: String?): List<Photo> {
-        return apiService.getRecentPhotos(page, date).content.photos.map {
+        return apiService.getRecentPhotos(page = page, date = date).content.photos.map {
             it.domain()
         }
     }

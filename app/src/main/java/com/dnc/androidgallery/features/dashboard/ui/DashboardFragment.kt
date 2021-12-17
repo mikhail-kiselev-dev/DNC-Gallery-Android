@@ -31,6 +31,9 @@ class DashboardFragment : BaseHostFragment<DashboardViewModel, FragmentDashboard
         super.onViewCreated(view, savedInstanceState)
         initBottomNavigation()
         initCallbacks()
+        // TODO fix navigation bug, when back button from DetailsHolderFragment closes the app
+        bottomNavbar.setActiveTab(BottomItem.RECENT)
+        bottomNavbar.setActiveTab(BottomItem.TOP)
     }
 
     private fun initCallbacks() {

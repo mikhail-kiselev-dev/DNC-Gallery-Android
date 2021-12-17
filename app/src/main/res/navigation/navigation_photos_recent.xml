@@ -8,9 +8,21 @@
         android:id="@+id/feedHolderFragment"
         android:name="com.dnc.androidgallery.features.feed.ui.FeedHolderFragment"
         android:label="FeedHolderFragment" >
+        <action
+            android:id="@+id/action_feedHolderFragment_to_detailsHolderFragment"
+            app:destination="@id/detailsHolderFragment" />
         <argument
             android:name="feedType"
             android:defaultValue="RECENT"
             app:argType="com.dnc.androidgallery.core.data.FeedType" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsHolderFragment"
+        android:name="com.dnc.androidgallery.features.details.ui.DetailsHolderFragment"
+        android:label="DetailsHolderFragment" >
+        <argument
+            android:name="detailsInfo"
+            app:argType="com.dnc.androidgallery.features.details.ui.model.DetailsItemInfo" />
     </fragment>
 </navigation>
