@@ -29,4 +29,10 @@
     <string name="photo_small">Photo Small</string>
     <string name="under_construction">Under Construction</string>
     <string name="page_num">%s / %s</string>
+    <string name="big_photo">Big Photo</string>
+    <string name="description">Description</string>
+    <string name="username">Username</string>
+    <string name="location">Location</string>
+    <string name="taken">Taken</string>
+    <string name="viewed">Viewed</string>
 </resources>

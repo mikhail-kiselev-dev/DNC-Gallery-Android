@@ -44,7 +44,6 @@ class BottomNavigationController(
 
     var onReselectedListener: (() -> Unit)? = null
 
-    // todo handle deeplink intent in future
     fun setup(
         bottomNavigationView: BottomNavbar,
     ): StateFlow<NavController> {

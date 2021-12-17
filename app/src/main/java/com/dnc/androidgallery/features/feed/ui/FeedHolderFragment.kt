@@ -7,6 +7,7 @@ import com.dnc.androidgallery.R
 import com.dnc.androidgallery.base.BaseFragment
 import com.dnc.androidgallery.core.extensions.subscribe
 import com.dnc.androidgallery.databinding.FragmentFeedHolderBinding
+import com.dnc.androidgallery.features.details.ui.model.DetailsItemInfo
 import com.dnc.androidgallery.features.feed.ui.list.InvokeOnPageChangeListener
 import com.dnc.androidgallery.features.feed.ui.list.ScreenSlidePagerAdapter
 import kotlinx.android.synthetic.main.fragment_feed_holder.*
@@ -51,6 +52,17 @@ class FeedHolderFragment : BaseFragment<FeedHolderViewModel, FragmentFeedHolderB
             requireActivity().supportFragmentManager,
             pagesTotal,
             args.feedType
-        )
+        ) { itemId, position, page ->
+            viewModel.navigate(
+                FeedHolderFragmentDirections.actionFeedHolderFragmentToDetailsHolderFragment(
+                    DetailsItemInfo(
+                        id = itemId,
+                        page = page + 1,
+                        position = position + 1,
+                        content = args.feedType
+                    )
+                )
+            )
+        }
     }
 }

@@ -7,12 +7,11 @@ import com.dnc.androidgallery.base.BaseFragment
 import com.dnc.androidgallery.base.recycler.RecyclerDelegationAdapter
 import com.dnc.androidgallery.core.data.FeedType
 import com.dnc.androidgallery.core.extensions.subscribe
-import com.dnc.androidgallery.core.utils.logd
 import com.dnc.androidgallery.databinding.FragmentFeedBinding
 import com.dnc.androidgallery.features.feed.ui.list.FeedAdapterDelegate
 import kotlinx.android.synthetic.main.fragment_feed.*
 
-class FeedFragment(private val position: Int, private val content: FeedType) :
+class FeedFragment(private val position: Int, private val content: FeedType, private val callback: (Long, Int) -> Unit) :
     BaseFragment<FeedViewModel, FragmentFeedBinding>(
         R.layout.fragment_feed,
         FragmentFeedBinding::bind
@@ -23,8 +22,8 @@ class FeedFragment(private val position: Int, private val content: FeedType) :
             addDelegate(
                 FeedAdapterDelegate(
                     requireContext(),
-                    clickListener = {
-                        logd(getString(R.string.under_construction))
+                    clickListener = { id, position ->
+                        callback.invoke(id, position)
                     }
                 )
             )

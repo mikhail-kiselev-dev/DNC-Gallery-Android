@@ -13,7 +13,7 @@ import com.dnc.androidgallery.features.feed.ui.model.FeedItemModel
 
 class FeedAdapterDelegate(
     context: Context,
-    private val clickListener: (FeedItemModel) -> Unit
+    private val clickListener: (Long, Int) -> Unit
 ) : AdapterDelegate(context) {
 
     override fun onCreateViewHolder(parent: ViewGroup) =
@@ -29,7 +29,7 @@ class FeedAdapterDelegate(
         val currentItem = item as FeedItemModel
         (viewHolder as FeedViewHolder).bind(currentItem)
         viewHolder.itemView.setOnClickListener {
-            clickListener.invoke(currentItem)
+            clickListener.invoke(currentItem.id, viewHolder.absoluteAdapterPosition)
         }
     }
 
