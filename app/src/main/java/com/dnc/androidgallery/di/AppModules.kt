@@ -16,4 +16,5 @@ val applicationModules = listOf(
     dashboardModule,
     settingsModule,
     detailsModule,
+    roomModule,
 )

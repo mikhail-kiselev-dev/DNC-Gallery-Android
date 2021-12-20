@@ -7,11 +7,17 @@ import com.dnc.androidgallery.base.BaseFragment
 import com.dnc.androidgallery.base.recycler.RecyclerDelegationAdapter
 import com.dnc.androidgallery.core.data.FeedType
 import com.dnc.androidgallery.core.extensions.subscribe
+import com.dnc.androidgallery.core.extensions.subscribeNullable
 import com.dnc.androidgallery.databinding.FragmentFeedBinding
 import com.dnc.androidgallery.features.feed.ui.list.FeedAdapterDelegate
 import kotlinx.android.synthetic.main.fragment_feed.*
 
-class FeedFragment(private val position: Int, private val content: FeedType, private val callback: (Long, Int) -> Unit) :
+class FeedFragment(
+    private val position: Int,
+    private val content: FeedType,
+    private val isFirstInit: Boolean,
+    private val callback: (Long, Int) -> Unit
+) :
     BaseFragment<FeedViewModel, FragmentFeedBinding>(
         R.layout.fragment_feed,
         FragmentFeedBinding::bind
@@ -36,7 +42,7 @@ class FeedFragment(private val position: Int, private val content: FeedType, pri
         binding.apply {
             rvFeed.adapter = adapter
         }
-        viewModel.loadFeed(content, position + 1)
+        viewModel.loadFeed(content, position + 1, isFirstInit = isFirstInit)
     }
 
     override fun observeLiveData() {
@@ -44,6 +50,9 @@ class FeedFragment(private val position: Int, private val content: FeedType, pri
         subscribe(viewModel.currentFeed) {
             setReadyState()
             adapter.setItems(it)
+        }
+        subscribeNullable(viewModel.fakeLoading) {
+            setLoadingState()
         }
     }
 

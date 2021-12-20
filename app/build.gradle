@@ -7,10 +7,6 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -24,36 +20,19 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-        debug {
-            storeFile file('../key/debug.jks')
-            storePassword keystoreProperties['ANDROID_DEBUG_KEY_PASS']
-            keyAlias 'key0'
-            keyPassword keystoreProperties['ANDROID_DEBUG_KEY_PASS']
-        }
-        release {
-            storeFile file('../key/release.jks')
-            storePassword keystoreProperties['ANDROID_RELEASE_KEY_PASS']
-            keyAlias 'key0'
-            keyPassword keystoreProperties['ANDROID_RELEASE_KEY_PASS']
-        }
-    }
-
     buildTypes {
         all {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'BASE_URL', "\"https://api.flickr.com/services/rest/\""
-            buildConfigField 'String', 'FLICKR_API_TOKEN', keystoreProperties['FLICKR_API_TOKEN']
+            buildConfigField 'String', 'FLICKR_API_TOKEN', "\"fa1e88ffb0aefbca718745193f4573bd\""
         }
         debug {
             minifyEnabled false
             debuggable true
-            signingConfig signingConfigs.debug
         }
         release {
             minifyEnabled true
             debuggable false
-            signingConfig signingConfigs.release
         }
     }
 

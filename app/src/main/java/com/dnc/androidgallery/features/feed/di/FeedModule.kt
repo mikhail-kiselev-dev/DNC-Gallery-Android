@@ -15,6 +15,6 @@ val feedModule = module {
     factory<FeedInteractor> { FeedInteractorImpl(get()) }
     single<FeedInfoDataSource> { FeedInfoDataSourceImpl(get()) }
     factory<FeedInfoInteractor> { FeedInfoInteractorImpl(get()) }
-    viewModel { FeedViewModel(get()) }
+    viewModel { FeedViewModel(get(), get()) }
     viewModel { FeedHolderViewModel(get()) }
 }
