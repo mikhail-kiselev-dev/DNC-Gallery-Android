@@ -11,7 +11,12 @@ import com.dnc.androidgallery.databinding.FragmentFeedBinding
 import com.dnc.androidgallery.features.feed.ui.list.FeedAdapterDelegate
 import kotlinx.android.synthetic.main.fragment_feed.*
 
-class FeedFragment(private val position: Int, private val content: FeedType, private val callback: (Long, Int) -> Unit) :
+class FeedFragment(
+    private val position: Int,
+    private val content: FeedType,
+    private val date: Long? = null,
+    private val callback: (Long, Int) -> Unit
+) :
     BaseFragment<FeedViewModel, FragmentFeedBinding>(
         R.layout.fragment_feed,
         FragmentFeedBinding::bind
@@ -36,7 +41,7 @@ class FeedFragment(private val position: Int, private val content: FeedType, pri
         binding.apply {
             rvFeed.adapter = adapter
         }
-        viewModel.loadFeed(content, position + 1)
+        viewModel.loadFeed(content, position + 1, date)
     }
 
     override fun observeLiveData() {

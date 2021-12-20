@@ -5,7 +5,7 @@ import com.dnc.androidgallery.features.feed.domain.model.Photo
 
 interface FeedInteractor {
     suspend fun getTopPhotos(page: Int, date: String?): List<Photo>
-    suspend fun getRecentPhotos(page: Int, date: String?): List<Photo>
+    suspend fun getRecentPhotos(page: Int): List<Photo>
 }
 
 class FeedInteractorImpl(
@@ -15,7 +15,7 @@ class FeedInteractorImpl(
         return dataSource.getTopPhotos(page, date)
     }
 
-    override suspend fun getRecentPhotos(page: Int, date: String?): List<Photo> {
-        return dataSource.getRecentPhotos(page, date)
+    override suspend fun getRecentPhotos(page: Int): List<Photo> {
+        return dataSource.getRecentPhotos(page)
     }
 }

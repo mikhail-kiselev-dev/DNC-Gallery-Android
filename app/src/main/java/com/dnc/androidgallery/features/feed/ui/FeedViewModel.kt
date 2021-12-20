@@ -9,6 +9,7 @@ import com.dnc.androidgallery.features.feed.domain.FeedInteractor
 import com.dnc.androidgallery.features.feed.ui.model.FeedItemModel
 import com.dnc.androidgallery.features.feed.ui.model.itemModel
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
 
 open class FeedViewModel(
     private val interactor: FeedInteractor,
@@ -16,7 +17,12 @@ open class FeedViewModel(
 
     val currentFeed: LiveData<List<FeedItemModel>> = MutableLiveData()
 
-    fun loadFeed(content: FeedType, page: Int, date: String? = null) {
+    fun loadFeed(content: FeedType, page: Int, dateUnix: Long? = null) {
+        val date = if (dateUnix != null) {
+            SimpleDateFormat("yyyy-MM-dd").format(dateUnix)
+        } else {
+            null
+        }
         launch(dispatcher = ioContext) {
             val feed = when (content) {
                 FeedType.TOP -> {
@@ -25,7 +31,7 @@ open class FeedViewModel(
                     }
                 }
                 FeedType.RECENT -> {
-                    interactor.getRecentPhotos(page, date).map {
+                    interactor.getRecentPhotos(page).map {
                         it.itemModel()
                     }
                 }

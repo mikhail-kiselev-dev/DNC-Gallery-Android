@@ -18,7 +18,6 @@ interface ApiService {
     suspend fun getRecentPhotos(
         @Query("page") page: Int = 1,
         @Query("per_page") perPage: Int = 9,
-        @Query("date") date: String? = ""
     ): FeedResponse
 
     @GET("?method=flickr.photos.getInfo")

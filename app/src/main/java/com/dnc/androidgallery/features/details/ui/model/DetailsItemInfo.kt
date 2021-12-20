@@ -9,5 +9,5 @@ data class DetailsItemInfo(
     val id: Long,
     val page: Int,
     val position: Int,
-    val content: FeedType
+    val content: FeedType,
 ) : Parcelable
