@@ -1,6 +1,6 @@
-# DNC Gallery Android  
+# Gallery Android  
 
-Simple photo viewer with mobile architecture of Drum'N'Code company.  
+Simple photo viewer with koin mobile architecture of DNC company.  
 Tools and etc.: MVVM+Clean, Coroutines, LiveData, Room, Koin, Retrofit+OkHttp, Glide, Jetpack navigation, Firebase.  
 
 ---  
